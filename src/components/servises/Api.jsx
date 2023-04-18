@@ -20,3 +20,5 @@ export const getImagesAPI = async (query, page) => {
   });
   return images;
 };
+
+//Pleas, work!
