@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Notiflix from 'notiflix';
 
 import { Container } from './App.styled';
 import { getImagesAPI } from './Servises/Api';
@@ -33,7 +34,7 @@ export class App extends Component {
 
   onFormSubmit = query => {
     if (query.trim().length === 0) {
-      alert('Please, enter request');
+      Notiflix.Report.info('', 'Please, enter request', 'Ok');
       return;
     }
 
@@ -62,8 +63,10 @@ export class App extends Component {
         isLoading: false,
       }));
       if (images.length === 0) {
-        alert(
-          "Sorry, we can't find anyting for your request. Please, enter another request"
+        Notiflix.Report.failure(
+          '',
+          "Sorry, we can't find anyting for your request. Please, enter another request",
+          'OK'
         );
       }
     } catch (error) {
